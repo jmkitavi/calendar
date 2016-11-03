@@ -2,6 +2,8 @@ import time
 import calendar
 
 def calendar():
+    import time
+    import calendar
     localtime1 = time.localtime(time.time())
     localtime = time.asctime(time.localtime(time.time()))
     cal = calendar.month(localtime1.tm_year,localtime1.tm_mon)
@@ -25,17 +27,17 @@ def enter_eventname():
 
 
 def event():
-    n = input("Enter 0 to view events or 1 to create new input and 2 to view last event:")
+    n = input("Enter 0 to view all events or 1 to create new input and 2 to view last event:")
     if n == 1:
         event_details2 = [get_time(),enter_eventname()]
         print "You entered"
         print event_details2
         f = open("event.txt",'a')
-        f.write(format(event_details2) + "\n")
+        f.write("Event date :"+format(event_details2[0])+"\t"+"Event name :"+format(event_details2[1]) + "\n")
         f.close()
     elif n ==2:
         f = open("event.txt",'r')
-        last =  open('event.txt', 'r').read().count("\n")
+        last = open('event.txt', 'r').read().count("\n")
         i = 1
         for line in f:
             if i == last:
