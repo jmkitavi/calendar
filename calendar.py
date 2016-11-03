@@ -1,8 +1,13 @@
 import time
 import calendar
-import sys
 
-event_details = []
+def calendar():
+    localtime1 = time.localtime(time.time())
+    localtime = time.asctime(time.localtime(time.time()))
+    cal = calendar.month(localtime1.tm_year,localtime1.tm_mon)
+    print localtime
+    print cal
+
 def get_time():
     isValid = False
     while not isValid:
@@ -46,7 +51,7 @@ def event():
     else:
         print "Wrong choice"
 
-# event()
+calendar()
 
 def run():
     while True:
