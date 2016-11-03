@@ -20,7 +20,7 @@ def enter_eventname():
 
 
 def event():
-    n = input("Enter 0 to view events or 1 to create new input and 2 to view last:")
+    n = input("Enter 0 to view events or 1 to create new input and 2 to view last event:")
     if n == 1:
         event_details2 = [get_time(),enter_eventname()]
         print "You entered"
@@ -28,7 +28,6 @@ def event():
         f = open("event.txt",'a')
         f.write(format(event_details2) + "\n")
         f.close()
-        exit()
     elif n ==2:
         f = open("event.txt",'r')
         last =  open('event.txt', 'r').read().count("\n")
@@ -40,14 +39,22 @@ def event():
         # line now holds the line
         # (or is empty if the file is smaller than that number)
         print line
-        exit()
     elif n ==0:
         f = open("event.txt",'r')
         for line in f:
             print line
-        exit()
     else:
         print "Wrong choice"
-        exit()
 
-event()
+# event()
+
+def run():
+    while True:
+        choice = raw_input("Enter c to continue or q to quit :")
+        if choice == "c":
+            event()
+        elif choice == "q":
+            return
+
+if __name__ == "__main__":
+    run()
